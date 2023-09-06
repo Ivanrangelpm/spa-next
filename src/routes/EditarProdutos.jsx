@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom"
-import Produto from "./Produtos";
 import { ListaProdutos } from "../components/ListaProdutos";
 
 export default function EditarProdutos() {
 
   //Recuperando o ID que chega no request através do PATH.
   //Vamos Utilizar o Hook userParams().
+
+  document.title = "EDITAR PRODUTOS"
 
   const {id} = useParams();
 
@@ -16,11 +17,28 @@ export default function EditarProdutos() {
   });
   return (
     <>
-      <h1>EditarProdutos</h1>
-      <h2>PRODUTO</h2>
-      <p>Nome: {produtoRecuperado[0].nome}</p>
-      <p>Descrição: {produtoRecuperado[0].desc}</p>
-      <p>Preço: {produtoRecuperado[0].preco}</p>
+      <div>
+        <form>
+          <fieldset>
+            <legend>Produto Selecionado</legend>
+            <div>
+              <label htmlFor="idNome">Nome</label>
+              <input type="text" name="nome" id="idNome" defaultValue={produtoRecuperado[0].nome}/>
+            </div>
+            <div>
+              <label htmlFor="idDescricao">Descrição</label>
+              <input type="text" name="desc" id="idDescricao" defaultValue={produtoRecuperado[0].desc}/>
+            </div>
+            <div>
+              <label htmlFor="idPreco">Preço</label>
+              <input type="text" name="preco" id="idPreco" defaultValue={produtoRecuperado[0].preco}/>
+            </div>
+            <div>
+              <button>EDITAR</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </>
   )
 }

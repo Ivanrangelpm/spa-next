@@ -5,6 +5,8 @@ import {BsFillTrashFill as BinObj} from "react-icons/bs";
 
 export default function Produto(){
 
+  document.title = "PRODUTOS"
+
     return(
         <>
             <h1>Produtos Informáticos - FIAPO</h1>
