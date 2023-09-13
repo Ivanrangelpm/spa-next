@@ -1,0 +1,41 @@
+.tblEstilo{
+    border-collapse: collapse;
+    border: 2px solid #ccc;
+    margin: 0 auto;
+
+    .tblHeader{
+        background-color: dimgray;
+        border:2px solid #ccc;
+    }
+
+    .tblData{
+        border:2px solid gray;
+    }
+
+    .tblLine{
+        background-color: #ccc;
+        &:hover{
+            background-color:#b0acac ;
+        }
+    }
+}
+
+/* .tblEstilo{
+    border-collapse: collapse;
+    border: 2px solid #ccc;
+    margin: 0 auto;
+    th{
+        background-color:dimgray ;
+        border:2px solid #ccc;
+    }
+    td{
+        border:2px solid gray;
+    }
+    tr{
+        background-color: #ccc;
+        &:hover{
+            background-color:#b0acac ;
+        }
+    }
+
+} */
