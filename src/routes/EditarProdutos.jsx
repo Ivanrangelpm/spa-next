@@ -37,14 +37,22 @@ export default function EditarProdutos() {
     e.preventDefault();
 
     let indice;
-
+    //Recuperando o índice do produto alterado com forEach
     ListaProdutos.forEach((item, index) =>{
       if(item.id == produto.id){
         indice = index;
       }
     });
+
+    //Ou utilizando o método indexOf
+    // indice - ListaProdutos.findIndex(item => item.id == produto.id);
+
+    //Alterando o produto na listacom o método splice()
     ListaProdutos.splice(indice,1,produto);
+
+
     alert("Seu produto foi alterado com Sucesso!")
+    //Redirecionando o usuário para a página de produtos
     navigate("/produtos");
   }
 

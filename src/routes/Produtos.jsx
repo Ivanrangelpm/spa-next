@@ -14,23 +14,27 @@ export default function Produto(){
             <table className={estilos.tblEstilo}>
             <thead>
                 <tr>
-                  <th className={estilos.tblHeader}>ID</th>
-                  <th className={estilos.tblHeader}>NOME</th>
-                  <th className={estilos.tblHeader}>DESCRIÇÃO</th>
-                  <th className={estilos.tblHeader}>PREÇO</th>
-                  <th className={estilos.tblHeader}>Editar/Excluir</th>
+                  <th>ID</th>
+                  <th>NOME</th>
+                  <th>DESCRIÇÃO</th>
+                  <th>PREÇO</th>
+                  <th>IMAGEM</th>
+                  <th>Editar/Excluir</th>
                 </tr>
               </thead>
 
               <tbody>
                 {ListaProdutos.map((produto, indice)=>(
                     <tr key={indice} className={estilos.tblLine}>
-                        <td className={estilos.tblData}>{produto.id}</td>
-                        <td className={estilos.tblData}>{produto.nome}</td>
-                        <td className={estilos.tblData}>{produto.desc}</td>
-                        <td className={estilos.tblData}>{produto.preco}</td>
-                        <td className={estilos.tblData}> <Link to={`/editar/produtos/${produto.id}`}> <EditObj/></Link> |
-                        <Link to={`/excluir/produtos/${produto.id}`}><BinObj/></Link></td>
+                        <td>{produto.id}</td>
+                        <td>{produto.nome}</td>
+                        <td>{produto.desc}</td>
+                        <td>{produto.preco}</td>
+                        <td><img src={produto.img} alt={produto.desc} /></td>
+                        <td>
+                        <Link to={`/editar/produtos/${produto.id}`}> <EditObj/></Link> |
+                        <Link to={`/excluir/produtos/${produto.id}`}><BinObj/></Link>
+                        </td>
                     </tr>
                 ))}
               </tbody>

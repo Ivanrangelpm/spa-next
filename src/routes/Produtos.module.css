@@ -1,4 +1,4 @@
-.tblEstilo{
+/* .tblEstilo{
     border-collapse: collapse;
     border: 2px solid #ccc;
     margin: 0 auto;
@@ -18,24 +18,37 @@
             background-color:#b0acac ;
         }
     }
-}
+} */
 
-/* .tblEstilo{
+.tblEstilo{
     border-collapse: collapse;
     border: 2px solid #ccc;
     margin: 0 auto;
-    th{
+    & th{
         background-color:dimgray ;
         border:2px solid #ccc;
+        text-align: center;
     }
-    td{
+    & td{
         border:2px solid gray;
+
+        &:first-child{
+            text-align: center;
+        }   
+        &:last-child{
+            text-align: center;
+        }
+        & img{
+            display: block;
+            width: 30%;
+            margin: 0 auto;
+        }
     }
-    tr{
+    & tr{
         background-color: #ccc;
         &:hover{
             background-color:#b0acac ;
         }
     }
 
-} */
+}
