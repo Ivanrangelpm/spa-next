@@ -1,0 +1,19 @@
+
+.tit{
+    text-align: center;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & figure{
+        border: 2px solid #eb0c7c;
+
+        & figcaption{
+            background-color: rgba(0,0,0,0);
+        }
+    }
+
+}

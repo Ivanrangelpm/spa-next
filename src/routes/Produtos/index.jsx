@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { ListaProdutos } from "../components/ListaProdutos";
+import { ListaProdutos } from "../../components/ListaProdutos";
 import {AiFillEdit as EditObj} from "react-icons/ai";
 import {BsFillTrashFill as BinObj} from "react-icons/bs";
-import estilos from "./Produtos.module.css";
+import estilos from "./index.module.css";
 
 export default function Produto(){
 

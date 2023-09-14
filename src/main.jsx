@@ -5,11 +5,11 @@ import App from './App.jsx'
 
 //BLOCO DE ROTAS
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './routes/Home.jsx';
-import Produtos from './routes/Produtos.jsx';
-import Erro from './routes/Erro.jsx';
-import EditarProdutos from './routes/EditarProdutos.jsx';
-import ExcluirProdutos from './routes/ExcluirProdutos.jsx'; 
+import Home from './routes/Home/index.jsx';
+import Produtos from './routes/Produtos/index.jsx';
+import Erro from './routes/Erro/index.jsx';
+import EditarProdutos from './routes/EditarProdutos/index.jsx';
+import ExcluirProdutos from './routes/ExcluirProdutos/index.jsx'; 
 
 const router = createBrowserRouter(
   [
