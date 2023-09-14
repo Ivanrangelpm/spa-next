@@ -21,6 +21,7 @@ export default function EditarProdutos() {
     id: produtoRecuperado.id,
     nome: produtoRecuperado.nome,
     desc: produtoRecuperado.desc,
+    img: produtoRecuperado.img,
     preco: produtoRecuperado.preco
   });
 
@@ -62,47 +63,29 @@ export default function EditarProdutos() {
         <button onClick={()=> setCounter(counter + 1)}>COUNTER - {counter}</button>
       </div> */}
       <div>
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <legend>Produto Selecionado</legend>
-            <div>
-              <input type="hidden" name="id" value={produto.id} />
-            </div>
-            <div>
-              <label htmlFor="idNome">Nome</label>
-              <input
-                type="text"
-                name="nome"
-                id="idNome"
-                value={produto.nome} onChange={handleChange}/>
-            </div>
-            <div>
-              <label htmlFor="idDescricao">Descrição</label>
-              <input
-                type="text"
-                name="desc"
-                id="idDescricao"
-                value={produto.desc} onChange={handleChange}/>
-            </div>
-            <div>
-              <label htmlFor="idPreco">Preço</label>
-              <input
-                type="text"
-                name="preco"
-                id="idPreco"
-                value={produto.preco} onChange={handleChange}/>
-            </div>
-            <div>
-              <button>EDITAR</button>
-            </div>
-          </fieldset>
-        </form>
-        {/* <div>
-          <p>{counter}</p>
-        </div> */}
-      </div>
-      <div>
-        <p>Nome : {produto.nome}</p>
+      <form onSubmit={handleSubmit}>
+            <fieldset>
+              <legend>Produto Selecionado</legend>
+              <div>
+                <label htmlFor="idNome">Nome</label>
+                <input type="text" name="nome" id="idNome" value={produto.nome} onChange={handleChange}/>
+              </div>
+              <div>
+                <label htmlFor="idDesc">Descrição</label>
+                <input type="text" name="desc" id="idDesc" value={produto.desc} onChange={handleChange}/>
+              </div>
+              <div>
+                <label htmlFor="idPreco">Preço</label>
+                <input type="text" name="preco" id="idPreco" value={produto.preco} onChange={handleChange}/>
+              </div>
+              <div>
+                <button>EDITAR</button>
+              </div>
+            </fieldset>
+      </form>
+      {/* <div>
+        <p>{counter}</p>
+      </div> */}
       </div>
     </>
   )

@@ -32,8 +32,8 @@ export default function Produto(){
                         <td>{produto.preco}</td>
                         <td><img src={produto.img} alt={produto.desc} /></td>
                         <td>
-                        <Link to={`/editar/produtos/${produto.id}`}> <EditObj/></Link> |
-                        <Link to={`/excluir/produtos/${produto.id}`}><BinObj/></Link>
+                          <Link to={`/editar/produtos/${produto.id}`}> <EditObj/></Link> |
+                          <Link to={`/excluir/produtos/${produto.id}`}><BinObj/></Link>
                         </td>
                     </tr>
                 ))}
@@ -41,7 +41,7 @@ export default function Produto(){
 
               <tfoot>
                 <tr>
-                    <td colSpan={4}>PRODUTOS</td>
+                    <td colSpan={6}>PRODUTOS</td>
                 </tr>
               </tfoot>
             </table>

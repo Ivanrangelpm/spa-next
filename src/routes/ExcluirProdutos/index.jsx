@@ -24,10 +24,15 @@ export default function ExcluirProdutos() {
               <img src={produto.img} alt={produto.desc} />
               <figcaption>{produto.nome} - <span>R$ {produto.preco}</span></figcaption>
             </figure>
+            
+            <div className={style.btn}>
+              <button>EXCLUIR</button>
+              <button>CANCELAR</button>
+            </div>
+
           </div>
 
         </div>
     </>
-    
   )
 }

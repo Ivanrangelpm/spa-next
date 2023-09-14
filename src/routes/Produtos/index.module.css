@@ -22,15 +22,15 @@
 
 .tblEstilo{
     border-collapse: collapse;
-    border: 2px solid #ccc;
+    border: 2px solid #696969;
     margin: 0 auto;
     & th{
-        background-color:dimgray ;
-        border:2px solid #ccc;
+        background-color:#696969 ;
+        border:2px solid  ;
         text-align: center;
     }
     & td{
-        border:2px solid gray;
+        border:2px solid #696969;;
 
         &:first-child{
             text-align: center;

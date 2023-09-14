@@ -1,4 +1,3 @@
-
 .tit{
     text-align: center;
 }
@@ -9,11 +8,44 @@
     align-items: center;
 
     & figure{
-        border: 2px solid #eb0c7c;
+        border: 3px solid #696969;
+
+        & img{
+            display: block;
+        }
 
         & figcaption{
-            background-color: rgba(0,0,0,0);
+            text-align: center;
+            color: #fff;
+            background-color: #696969;
         }
+
     }
+    .btn{
+        & button{
+            width: 100%;
+            height: 40px;
+            margin: 2%;
+            border: none;
+            color: #000000;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        & button:first-child{   
+            background-color: #ff2400;
+            &:hover{
+                background-color: #d51e02;
+            }
+        }
+
+        & button:last-child{
+            background-color: #0ab64f;
+            &:hover{
+                background-color: #098e3e;
+                }
+            }
+        }
 
 }
