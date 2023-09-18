@@ -1,38 +1,39 @@
 import { useState } from "react";
 import { ListaProdutos } from "../../components/ListaProdutos";
-import { useParams } from "react-router-dom";
 
 export default function AdicionarProdutos(){
 
     document.title = "ADICIONAR PRODUTO"
 
-    const {id} = useParams();
+    const [ novaListaProdutos, setNovaListaProdutos ] = useState([])
 
-    //Entradas
-    const entryNome = document.getElementById("idAddNome");
-    const entryDesc = document.getElementById("idAddDesc");
-    const entryPreco = document.getElementById("idAddPreco");
-    const entryImg = document.getElementById("iddAddImg");
+    const [novoProduto, setNovoProduto] = useState({
+        id: '',
+        nome: '',
+        descricao: '',
+        preco: '',
+      });
 
-    // const [produto, setProduto] = useState({
-    //     id: (id + 1),
-    //     nome: entryNome.value,
-    //     desc: entryDesc.value,
-    //     img: entryImg.value,  
-    //     preco: entryPreco.value
-    // })
+    const produto = {
+        id: novoProduto.id,
+        nome: novoProduto.nome,
+        descricao: novoProduto.descricao,
+        preco: novoProduto.preco,
+    };
 
     const handleChange = (e) =>{
         //Destrutiring
         const {name,value} = e.target;
     
         //Utilizando o SPREAD para adicionar o conteúdo no state:
-        setProduto({...produto,[name]:value});
+        setNovoProduto({...produto,[name]:value});
     
-      }
+    }
 
     const handleSubmit = (e)=>{
         e.preventDefault();
+
+          setNovaListaProdutos(produto)
     }
 
     return(
@@ -43,19 +44,19 @@ export default function AdicionarProdutos(){
                         <legend>Adicionar Produto</legend>
                         <div>
                             <label htmlFor="idAddNome">Nome</label>
-                            <input type="text" name="nome" id="idAddNome" value={entryNome} onChange={handleChange}/>
+                            <input type="text" name="nome" id="idAddNome" value={produto.nome} onChange={handleChange}/>
                         </div>
                         <div>
                             <label htmlFor="idAddDesc">Descrição</label>
-                            <input type="text" name="desc" id="idAddDesc" value={entryDesc} onChange={handleChange}/>
+                            <input type="text" name="desc" id="idAddDesc" value={produto.desc} onChange={handleChange}/>
                         </div>
                         <div>
                             <label htmlFor="idAddPreco">Preço</label>
-                            <input type="text" name="preco" id="idAddPreco" value={entryPreco} onChange={handleChange}/>
+                            <input type="text" name="preco" id="idAddPreco" value={produto.preco} onChange={handleChange}/>
                         </div>
                         <div>
-                            <label htmlFor="idAddImg"></label>
-                            <input type="text" name="img" id="idAddImg" value={entryImg} onChange={handleChange}/>
+                            <label htmlFor="idAddImg">Imagem</label>
+                            <input type="text" name="img" id="idAddImg" value={produto.img} onChange={handleChange}/>
                         </div>
                         <button>ADD</button>
                     </fieldset>
