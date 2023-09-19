@@ -5,56 +5,32 @@ export default function AdicionarProdutos(){
 
     document.title = "ADICIONAR PRODUTO"
 
-    const [ListProdutos, setListProdutos] = useState([]);
+    const novoProdutoId = Math.max(...ListaProdutos.map((produto) => produto.id)) + 1
 
     const [novoProduto, setNovoProduto] = useState({
-        id: '',
+        id: novoProdutoId,
         nome: '',
         descricao: '',
         preco: '',
         img: ''
       });
 
+    const [AttLista, setAttLista] = useState([]);
+    
     const handleChange = (e) =>{
         //Destrutiring
         const {name,value} = e.target;
 
-        const novoProdutoId = Math.max(...ListaProdutos.map((produto) => produto.id)) + 1
-
-        const produto = {
-            id: novoProdutoId,
-            nome: novoProduto.nome,
-            descricao: novoProduto.descricao,
-            preco: novoProduto.preco,
-            img: novoProduto.img
-        };
-    
         //Utilizando o SPREAD para adicionar o conteúdo no state:
-        setNovoProduto({...produto,[name]:value});
-
-        const novaLista = [...ListaProdutos, produto]
-        
-        setListProdutos(novaLista)
-
-        setNovoProduto({
-            nome: '',
-            descricao: '',
-            preco: '',
-            img: ''
-        })
+        setNovoProduto({...novoProduto,[name]:value});
     
     }
 
     const handleSubmit = (e)=>{
         e.preventDefault();
+        
+        setAttLista(...ListaProdutos, novoProduto)
 
-
-        setNovoProduto({
-            id: '',
-            nome: '',
-            descricao: '',
-            preco: '',
-          });
     }
 
     return(
@@ -69,7 +45,7 @@ export default function AdicionarProdutos(){
                         </div>
                         <div>
                             <label htmlFor="idAddDesc">Descrição</label>
-                            <input type="text" name="desc" id="idAddDesc" value={novoProduto.descricao} onChange={handleChange}/>
+                            <input type="text" name="desc" id="idAddDesc" value={novoProduto.desc} onChange={handleChange}/>
                         </div>
                         <div>
                             <label htmlFor="idAddPreco">Preço</label>
@@ -77,7 +53,7 @@ export default function AdicionarProdutos(){
                         </div>
                         <div>
                             <label htmlFor="idAddImg">Imagem</label>
-                            <input type="text" name="img" id="idAddImg" value={novoProduto.img} onChange={handleChange}/>
+                            <input type="text" name="img" id="idAddImg" value={novoProduto.imagem} onChange={handleChange}/>
                         </div>
                         <button>ADD</button>
                     </fieldset>
