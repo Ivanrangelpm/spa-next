@@ -14,8 +14,6 @@ export default function AdicionarProdutos(){
         preco: '',
         img: ''
       });
-
-    const [AttLista, setAttLista] = useState([]);
     
     const handleChange = (e) =>{
         //Destrutiring
@@ -29,8 +27,7 @@ export default function AdicionarProdutos(){
     const handleSubmit = (e)=>{
         e.preventDefault();
         
-        setAttLista(...ListaProdutos, novoProduto)
-
+        ListaProdutos.push(novoProduto)
     }
 
     return(
