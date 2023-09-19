@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { ListaProdutos } from "../../components/ListaProdutos";
-import { useParams } from "react-router-dom";
 
 export default function AdicionarProdutos(){
 
     document.title = "ADICIONAR PRODUTO"
-
-    const {id} = useParams();
 
     const [ListProdutos, setListProdutos] = useState([]);
 
@@ -22,7 +19,7 @@ export default function AdicionarProdutos(){
         //Destrutiring
         const {name,value} = e.target;
 
-        const novoProdutoId = Math.max(...ListProdutos.map((produto) => produto.id)) + 1
+        const novoProdutoId = Math.max(...ListaProdutos.map((produto) => produto.id)) + 1
 
         const produto = {
             id: novoProdutoId,
@@ -35,7 +32,8 @@ export default function AdicionarProdutos(){
         //Utilizando o SPREAD para adicionar o conteúdo no state:
         setNovoProduto({...produto,[name]:value});
 
-        const novaLista = [...ListProdutos, produto]
+        const novaLista = [...ListaProdutos, produto]
+        
         setListProdutos(novaLista)
 
         setNovoProduto({
