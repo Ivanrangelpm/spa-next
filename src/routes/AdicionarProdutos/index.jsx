@@ -3,7 +3,7 @@ import { ListaProdutos } from "../../components/ListaProdutos";
 
 export default function AdicionarProdutos(){
 
-    document.title = "ADICIONAR PRODUTO"
+    document.title = "ADICIONAR PRODUTOS"
 
     const novoProdutoId = Math.max(...ListaProdutos.map((produto) => produto.id)) + 1
 
