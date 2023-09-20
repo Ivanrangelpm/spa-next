@@ -28,6 +28,7 @@ export default function AdicionarProdutos(){
         e.preventDefault();
         
         ListaProdutos.push(novoProduto)
+        alert("O produto foi adicionado com sucesso!")
     }
 
     return(
