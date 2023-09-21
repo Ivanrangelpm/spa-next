@@ -6,7 +6,10 @@ import estilos from "./index.module.css";
 
 export default function Produto(){
 
-  document.title = "PRODUTOS"
+  document.title = "Lista de Produtos"
+
+  //Criando o bloco de reequisição dos dados utilizando o fetch com promises:
+  
 
     return(
         <>
