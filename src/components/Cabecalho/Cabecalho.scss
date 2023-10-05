@@ -1,9 +1,32 @@
+
 .cabecalho{
+
     background-color: #999;
     color: #fff;
     width: 15%;
 
     ul{
         list-style: none;
+        padding: 0;
+        li a{
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            padding: 5%;
+            margin: 0.5% 0;
+            color: #fff;
+
+            &:hover{
+                background-color: rgb(111, 114, 116);
+            }
+        }
+        
+    
+    }
+
+    .active{
+        background-color: aquamarine;
+        color: black;
     }
 }
+
