@@ -34,6 +34,13 @@
       "desc": "Cadeira Gamer DxRacer",
       "preco": 2800,
       "img": "https://picsum.photos/300/200"
+    },
+    {
+      "nome": "Fone Bluetooth",
+      "desc": "Fone JBL sem fio",
+      "preco": "300",
+      "img": "https://picsum.photos/id/237/200/300",
+      "id": 6
     }
   ]
 }

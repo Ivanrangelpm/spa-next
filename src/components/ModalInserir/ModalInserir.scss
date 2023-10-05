@@ -1,0 +1,106 @@
+
+//Criando variáveis no SASS:
+$bgColor:#ff0000;
+$txtColor:#fff;
+$displayView:block;
+$bordaArredondada:5px;
+//Criando um agrupando de estilos, chamamos de MIXING:
+@mixin estiloPadraoForm($tamanhoFonte,$familiaFonte,$corFonte){
+
+    form{
+        font-family: $familiaFonte;
+        font-size: $tamanhoFonte;
+        color: $corFonte;
+
+        label{
+            display: $displayView;
+            letter-spacing: 2px;
+        }
+
+        input{
+            display: $displayView;
+            border-radius: $bordaArredondada;
+        }
+    }
+}
+
+
+
+$estiloDaFonte: Arial, Helvetica, sans-serif;
+
+.formGroup{
+    @include estiloPadraoForm(1.5rem, $estiloDaFonte ,#040532 );
+
+    form{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    div{
+        clear: right;
+    }
+
+    .btnClose{
+        background-color: $txtColor;
+        border-radius: 50%;
+        font-weight: bold;
+        width: 2%;
+        display: $displayView;
+        text-align: center;
+        user-select: none;
+        float: right;
+        border: 2px solid #ccc;
+
+        &:hover{
+            background-color: #000000;
+            color: $txtColor;
+        }
+
+        &:active{
+            background-color: $bgColor;
+        }
+
+
+    }
+    
+    input{
+        border: 0 solid transparent;
+        width: 68%;
+        height: 40px;
+        margin: 1% auto;
+        padding: 0 10px;
+
+    }
+
+    legend{
+        color: $txtColor;
+    }
+
+    label{
+        color: $txtColor;
+        margin: 0 auto;
+        width: 70%;
+        
+    }
+
+    button{
+        font-weight: bold; 
+        border: 0 solid transparent;
+        border-radius: $bordaArredondada;
+        margin: 2% auto;
+        display: $displayView;
+        height: 50px;
+        width: 40%;
+        background-color: green;
+        color: $txtColor;
+        font-size: 1.5rem;
+        transition: background-color 300ms, color 300ms;
+
+        &:hover{
+            background-color: #d2f9d2;
+            color: #000000;
+        }
+    }
+
+
+}

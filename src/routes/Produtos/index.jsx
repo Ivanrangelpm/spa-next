@@ -3,6 +3,7 @@ import { AiFillEdit as EditObj } from "react-icons/ai";
 import { BsFillTrashFill as BinObj } from "react-icons/bs";
 import estilos from "./index.module.css";
 import { useEffect, useState } from "react";
+import ModalInserir from "../../components/ModalInserir/Modalinserir";
 
 export default function Produto() {
   document.title = "Lista de Produtos";
@@ -23,15 +24,17 @@ export default function Produto() {
       })
       .catch((err) => console.log(err));
   }, []);
+  
+  const [open, setOpen] = useState(false);
 
   return (
     <>
       <h1>Produtos Informáticos - FIAPO</h1>
-      <div>
-        <Link to={"/adicionar/produtos"}>
-          <button>Adicionar novo produto</button>
-        </Link>
-      </div>
+
+      { open ? <ModalInserir open={open} setOpen={setOpen}/> : "" }
+
+      <Link onClick={()=> setOpen(true)}>Cadastrar Produtos</Link>  
+
       <table className={estilos.tblEstilo}>
         <thead>
           <tr>
