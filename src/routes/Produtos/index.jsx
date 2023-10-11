@@ -58,12 +58,11 @@ export default function Produto() {
               </td>
               <td>
                 <Link to={`/editar/produtos/${produto.id}`}>
-                  {" "}
-                  <EditObj />
+                  {" "}<EditObj/>
                 </Link>{" "}
                 |
                 <Link to={`/excluir/produtos/${produto.id}`}>
-                  <BinObj />
+                  {" "}<BinObj />
                 </Link>
               </td>
             </tr>

@@ -1,29 +1,36 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { ListaProdutos } from "../../components/ListaProdutos";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function EditarProdutos() {
 
   //Recuperando o ID que chega no request através do PATH.
   //Vamos Utilizar o Hook userParams().
 
+  const {id} = useParams();
+
   document.title = "EDITAR PRODUTOS"
 
   const navigate = useNavigate(); 
 
-  const {id} = useParams();
-
-  const produtoRecuperado = ListaProdutos.filter((produto) => produto.id == id)[0]
-  
-  {/*const [counter, setCounter] = useState(0);*/}
-
   const [produto, setProduto] = useState({
-    id: produtoRecuperado.id,
-    nome: produtoRecuperado.nome,
-    desc: produtoRecuperado.desc,
-    img: produtoRecuperado.img,
-    preco: produtoRecuperado.preco
+    id: id,
+    nome: '',
+    desc: '',
+    img: '',
+    preco: ''
   });
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/produtos/${id}`,{ 
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then((response) => response.json())
+    .then((response) => setProduto(response))
+    .catch((error) => console.log(error))
+  }, [id]);
 
   const handleChange = (e) =>{
     //Destrutiring
@@ -37,20 +44,16 @@ export default function EditarProdutos() {
   const handleSubmit = (e)=>{
     e.preventDefault();
 
-    let indice;
-    //Recuperando o índice do produto alterado com forEach
-    ListaProdutos.forEach((item, index) =>{
-      if(item.id == produto.id){
-        indice = index;
-      }
-    });
-
-    //Ou utilizando o método indexOf
-    // indice - ListaProdutos.findIndex(item => item.id == produto.id);
-
-    //Alterando o produto na lista com o método splice()
-    ListaProdutos.splice(indice,1,produto);
-
+    fetch(`http://localhost:5000/produtos/${id}`,{
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(produto)
+    })
+    .then((response)=> response.json())
+    .then((response)=> console.log(response))
+    .catch(error=> console.log(error));
 
     alert("Seu produto foi alterado com Sucesso!")
     //Redirecionando o usuário para a página de produtos
@@ -59,13 +62,10 @@ export default function EditarProdutos() {
 
   return (
     <>
-      {/* <div>
-        <button onClick={()=> setCounter(counter + 1)}>COUNTER - {counter}</button>
-      </div> */}
       <div>
       <form onSubmit={handleSubmit}>
             <fieldset>
-              <legend>Produto Selecionado</legend>
+              <legend>Produto Selecionado!</legend>
               <div>
                 <label htmlFor="idNome">Nome</label>
                 <input type="text" name="nome" id="idNome" value={produto.nome} onChange={handleChange}/>
@@ -83,9 +83,6 @@ export default function EditarProdutos() {
               </div>
             </fieldset>
       </form>
-      {/* <div>
-        <p>{counter}</p>
-      </div> */}
       </div>
     </>
   )
