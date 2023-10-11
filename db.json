@@ -1,13 +1,6 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "nome": "asdasd",
-      "desc": "Mecânico",
-      "preco": 150,
-      "img": "https://picsum.photos/300/200"
-    },
-    {
       "id": 2,
       "nome": "Mouse",
       "desc": "Gamer",

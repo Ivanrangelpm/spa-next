@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { ListaProdutos } from "../../components/ListaProdutos";
 import style from "./index.module.css";
+import { useEffect, useState } from "react";
 
 export default function ExcluirProdutos() {
 
@@ -8,16 +8,31 @@ export default function ExcluirProdutos() {
 
   const navigate = useNavigate();
   const { id } = useParams();
-  const produto = ListaProdutos.filter((produto) => produto.id == id)[0];
+  const [produto, setProduto] = useState({
+    id: id,
+    nome: '',
+    desc: '',
+    img: '',
+    preco: ''
+  });
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/produtos/${id}`,{ 
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then((response) => response.json())
+    .then((response) => setProduto(response))
+    .catch((error) => console.log(error))
+  }, [id]);
+ 
   const handleDelete = ()=>{
     
-    let indice;
-    //Ou utilizando o método findIndex
-    indice = ListaProdutos.findIndex(item => item.id == produto.id);
-
-    //Alterando o produto na lista com o método splice()
-    ListaProdutos.splice(indice,1);
+    fetch(`http://localhost:5000/produtos/${id}`,{method: 'delete'})
+    .then(()=> (window.location = '/produtos'))
+    .catch((error)=> console.log(error))
 
     alert("Produto excluído com SUCESSO!");
 
