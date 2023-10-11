@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
+import "./index.scss";
 
 export default function EditarProdutos() {
 
@@ -63,7 +64,7 @@ export default function EditarProdutos() {
   return (
     <>
       <div>
-      <form onSubmit={handleSubmit}>
+        <form className="formulario" onSubmit={handleSubmit}>
             <fieldset>
               <legend>Produto Selecionado!</legend>
               <div>
@@ -82,7 +83,7 @@ export default function EditarProdutos() {
                 <button>EDITAR</button>
               </div>
             </fieldset>
-      </form>
+        </form>
       </div>
     </>
   )

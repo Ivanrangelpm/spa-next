@@ -1,13 +1,6 @@
 {
   "produtos": [
     {
-      "id": 2,
-      "nome": "Mouse",
-      "desc": "Gamer",
-      "preco": 120,
-      "img": "https://picsum.photos/300/200"
-    },
-    {
       "id": 3,
       "nome": "Headset",
       "desc": "8D",
@@ -29,11 +22,18 @@
       "img": "https://picsum.photos/300/200"
     },
     {
-      "nome": "Fone Bluetooth",
-      "desc": "Fone JBL sem fio",
-      "preco": "300",
+      "nome": "doguinhlo",
+      "desc": "doguinho mt pica",
+      "preco": "349867230496720582396757823969078678",
       "img": "https://picsum.photos/id/237/200/300",
       "id": 6
+    },
+    {
+      "nome": "fone",
+      "desc": "fone bom ",
+      "preco": "10",
+      "img": "https://picsum.photos/300/200",
+      "id": 7
     }
   ]
 }
